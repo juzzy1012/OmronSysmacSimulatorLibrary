@@ -1,31 +1,62 @@
 # OmronSysmacSimulator
 
+[![NuGet](https://img.shields.io/nuget/v/OmronSysmacSimulator.svg)](https://www.nuget.org/packages/OmronSysmacSimulator/)
+[![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](LICENSE)
+[![.NET](https://img.shields.io/badge/.NET%20Standard-2.0-purple.svg)](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)
+
 A C# library for communicating with the Omron Sysmac Studio Simulator via `NexSocket.dll`. It enables reading and writing PLC variables for testing and development without physical hardware.
+
+## Table of Contents
+
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Defining PLC Types](#defining-plc-types)
+- [Type Mapping](#type-mapping)
+- [Attributes](#attributes)
+- [Enums](#enums)
+- [Arrays](#arrays)
+- [Connection Options](#connection-options)
+- [Async Operations](#async-operations)
+- [Diagnostics](#diagnostics)
+- [Variable Import](#variable-import)
+- [Raw Byte Access](#raw-byte-access)
+- [Error Handling](#error-handling)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
 ## Features
 
-- **Simple API**: Connect, read, and write with minimal code
-- **Type-safe**: Generic `Read<T>` and `Write<T>` methods with automatic serialization
-- **Complex Types**: Support for user-defined types, nested structures, arrays, and enums
-- **Order-based Layout**: Use `[Order]` attributes to define struct member ordering
-- **Auto-chunking**: Handles large data transfers automatically by splitting into chunks
-- **.NET Standard 2.0**: Compatible with .NET Framework 4.6.1+, .NET Core 2.0+, and modern .NET
-- **Async Support**: All operations have async counterparts
+- **Simple API** - Connect, read, and write with minimal code
+- **Type-safe** - Generic `Read<T>` and `Write<T>` methods with automatic serialization
+- **Complex Types** - Support for user-defined types, nested structures, arrays, and enums
+- **Order-based Layout** - Use `[Order]` attributes to define struct member ordering
+- **Auto-chunking** - Handles large data transfers automatically by splitting into chunks
+- **.NET Standard 2.0** - Compatible with .NET Framework 4.6.1+, .NET Core 2.0+, and modern .NET
+- **Async Support** - All operations have async counterparts
 
 ## Prerequisites
 
-- Sysmac Studio installed (provides `NexSocket.dll`)
+- [Sysmac Studio](https://www.ia.omron.com/products/family/3651/) installed (provides `NexSocket.dll`)
 - Sysmac Studio Simulator running
 
 ## Installation
 
 Add the NuGet package to your project:
 
-```
+```bash
 dotnet add package OmronSysmacSimulator
 ```
 
-Or reference the project directly.
+Or via the Package Manager Console:
+
+```powershell
+Install-Package OmronSysmacSimulator
+```
+
+Or reference the project directly in your solution.
 
 ## Quick Start
 
@@ -113,11 +144,12 @@ public class AlarmInfo
 | `string` | STRING | Requires `[PlcString(n)]` |
 | `enum` | Based on underlying type |
 | `class` | Nested struct | Calculated recursively |
-| `T[]` | Array | Element size × length |
+| `T[]` | Array | Element size x length |
 
 ## Attributes
 
 ### `[Order(int)]`
+
 **Required** for all members in a PLC structure. Specifies the serialization order (0-based).
 
 ```csharp
@@ -129,6 +161,7 @@ public float Second { get; set; }
 ```
 
 ### `[PlcString(int maxLength)]`
+
 **Required** for string members. Specifies the maximum byte length.
 
 ```csharp
@@ -138,6 +171,7 @@ public string Name { get; set; }
 ```
 
 ### `[ArrayLength(int)]`
+
 Optional. Specifies array length when it can't be inferred from the initializer.
 
 ```csharp
@@ -147,6 +181,7 @@ public int[] Values { get; set; }
 ```
 
 ### `[PlcType(PlcDataType)]`
+
 Optional. Overrides the automatically inferred PLC type.
 
 ```csharp
@@ -302,10 +337,25 @@ catch (SysmacTypeException ex)
 }
 ```
 
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+Please ensure your code:
+- Follows the existing code style
+- Includes appropriate tests
+- Updates documentation as needed
+
 ## License
 
-This library is licensed under GPL-3.0 (derived from the original Python library).
+This project is licensed under the GPL-3.0 License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
-Based on the Python [omron_sysmac_simulator](https://github.com/aphyt/omron_sysmac_simulator) library by APHYT, which was based on work by Simumatik.
+This library is a C# port based on the Python [omron_sysmac_simulator](https://github.com/aphyt/omron_sysmac_simulator) library by [APHYT](https://github.com/aphyt), which was originally based on work by [Simumatik](https://simumatik.com/).
