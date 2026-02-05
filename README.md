@@ -42,21 +42,6 @@ A C# library for communicating with the Omron Sysmac Studio Simulator via `NexSo
 - [Sysmac Studio](https://www.ia.omron.com/products/family/3651/) installed (provides `NexSocket.dll`)
 - Sysmac Studio Simulator running
 
-## Installation
-
-Add the NuGet package to your project:
-
-```bash
-dotnet add package OmronSysmacSimulator
-```
-
-Or via the Package Manager Console:
-
-```powershell
-Install-Package OmronSysmacSimulator
-```
-
-Or reference the project directly in your solution.
 
 ## Quick Start
 
