@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RootNamespace>OmronSysmacSimulator</RootNamespace>
+    <AssemblyName>OmronSysmacSimulator</AssemblyName>
+    <Version>1.0.0</Version>
+    <Authors>Your Name</Authors>
+    <Description>C# library for communicating with Omron Sysmac Studio Simulator via NexSocket.dll</Description>
+    <Copyright>Copyright © 2026</Copyright>
+    <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Memory" Version="4.5.5" />
+  </ItemGroup>
+
+</Project>

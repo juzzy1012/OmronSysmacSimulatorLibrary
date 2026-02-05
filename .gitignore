@@ -1,0 +1,74 @@
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio files
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+*.cache
+*.dbmdl
+*.pdb
+
+# NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+!**/[Pp]ackages/repositories.config
+
+# Build server artifacts
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# MSTest results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# Coverage results
+*.coverage
+*.coveragexml
+[Cc]overage/
+coverage*.json
+coverage*.xml
+
+# Rider
+.idea/
+*.sln.iml
+
+# JetBrains Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Code Cracker files
+StyleCopReport.xml
+
+# Benchmark results
+BenchmarkDotNet.Artifacts/
+
+# Project-specific
+*.tmp
+*.temp
+*.log
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
